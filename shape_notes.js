@@ -21,6 +21,11 @@ var NOTE_NORMAL = 0;
 var NOTE_4 = 1;
 var NOTE_7 = 2;
 
+//            -7   -6   -5   -4   -3   -2   -1   0     1    2    3    4    5    6    7
+var scales = ['C', 'G', 'D', 'A', 'E', 'B', 'F', 'C', 'G', 'D', 'A', 'E', 'B', 'F', 'C'];
+
+var form;
+
 //---------------------------------------------------------
 //    init
 //    this function will be called on startup of mscore
@@ -28,33 +33,19 @@ var NOTE_7 = 2;
 
 function init()
       {
-      }
-
-//-------------------------------------------------------------------
-//    run
-//-------------------------------------------------------------------
-
-//            -7   -6   -5   -4   -3   -2   -1   0     1    2    3    4    5    6    7
-var scales = ['C', 'G', 'D', 'A', 'E', 'B', 'F', 'C', 'G', 'D', 'A', 'E', 'B', 'F', 'C'];
-
-
-//---------------------------------------------------------
-//    init
-//---------------------------------------------------------
-
-function init()
-      {
       };
 
-var form;
 
 //---------------------------------------------------------
 //    run
-//    create gui from qt designer generated file test4.ui
+//    create gui from qt designer generated file shape_notes.ui
 //---------------------------------------------------------
 
 function run()
       {
+      if (typeof curScore === 'undefined')
+            return;
+
       var loader = new QUiLoader(null);
       var file   = new QFile(pluginPath + "/shape_notes.ui");
       file.open(QIODevice.OpenMode(QIODevice.ReadOnly, QIODevice.Text));
