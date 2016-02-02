@@ -70,7 +70,7 @@ MuseScore {
         }
 
 
-      //            -7   -6   -5   -4   -3   -2   -1   0     1    2    3    4    5    6    7
+      //                          -7   -6   -5   -4   -3   -2   -1    0    1    2    3    4    5    6    7
       property variant scales :  ['C', 'G', 'D', 'A', 'E', 'B', 'F', 'C', 'G', 'D', 'A', 'E', 'B', 'F', 'C'];
 
       // Apply the given function to all notes in selection
@@ -151,11 +151,13 @@ MuseScore {
 
       function apply() {
         console.log("hello shapeNotes");
-        applyToNotesInSelection(shapeNotes)            
+        curScore.startCmd();
+        applyToNotesInSelection(shapeNotes);
+        curScore.endCmd();
       }
 
       onRun: {
-  if (typeof curScore === 'undefined')
+         if (typeof curScore === 'undefined')
             Qt.quit();
-         }
+      }
 }
