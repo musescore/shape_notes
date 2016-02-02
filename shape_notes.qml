@@ -117,12 +117,12 @@ MuseScore {
                                     for (var i = 0; i < graceChords.length; i++) {
                                           // iterate through all grace chords
                                           var notes = graceChords[i].notes;
-                                          func(note);
+                                          func(note, cursor.keySignature);
                                     }
                                     var notes = cursor.element.notes;
                                     for (var i = 0; i < notes.length; i++) {
                                           var note = notes[i];
-                                          func(note);
+                                          func(note, cursor.keySignature);
                                     }
                               }
                               cursor.next();
@@ -131,13 +131,12 @@ MuseScore {
             }
       }
 
-      function shapeNotes(note) {
+      function shapeNotes(note, curKey) {
         console.log("shapeNotes")
           var tpcNames = "FCGDAEB"
           var name = tpcNames[(note.tpc + 1) % 7]
 
           var names = "CDEFGAB"
-          var curKey = curScore.keysig;
           var scale = scales[curKey+7];
           
           var degrees = [0, 0, 0, 0, 0, 0, 0]; 
