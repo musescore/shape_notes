@@ -142,11 +142,35 @@ MuseScore {
           var names = "CDEFGAB"
           var scale = scales[curKey+7];
           
-          var degrees = [0, 0, 0, 0, 0, 0, 0]; 
+          var degrees = [
+              NoteHead.HEAD_NORMAL,
+              NoteHead.HEAD_NORMAL,
+              NoteHead.HEAD_NORMAL,
+              NoteHead.HEAD_NORMAL,
+              NoteHead.HEAD_NORMAL,
+              NoteHead.HEAD_NORMAL,
+              NoteHead.HEAD_NORMAL
+            ]; 
           if (shape4CheckBox.checked)
-            degrees =[9, 12, 10, 9, 12, 10, 4]; // 4 notes
+            degrees = [ // 4 notes
+                NoteHead.HEAD_FA,
+                NoteHead.HEAD_SOL,
+                NoteHead.HEAD_LA,
+                NoteHead.HEAD_FA,
+                NoteHead.HEAD_SOL,
+                NoteHead.HEAD_LA,
+                NoteHead.HEAD_MI
+              ];
           else if (shape7CheckBox.checked)
-            degrees = [7, 8, 4, 9, 12, 10, 11]; // 7 notes
+            degrees = [ // 7 notes
+                NoteHead.HEAD_DO,
+                NoteHead.HEAD_RE,
+                NoteHead.HEAD_MI,
+                NoteHead.HEAD_FA,
+                NoteHead.HEAD_SOL,
+                NoteHead.HEAD_LA,
+                NoteHead.HEAD_TI
+              ];
    
           note.headGroup = degrees[(names.indexOf(name) - names.indexOf(scale) +28)%7];           
       }
