@@ -183,7 +183,7 @@ MuseScore {
       }
 
       onRun: {
-         if (typeof curScore === 'undefined')
+         if (!curScore)
             Qt.quit();
       }
 }
